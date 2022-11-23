@@ -1,0 +1,11 @@
+package DataCrawler;
+
+import java.util.ArrayList;
+
+public class HistoricalCharaters extends Links {
+	public HistoricalCharaters() {
+		super();
+	}
+	
+	
+}

@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\PC\OneDrive - Hanoi University of Science and Technology\Documents\OOP\DataCrawler\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+3959137331.index
+3959597995.index

@@ -1,0 +1,25 @@
+package DataCrawler;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+public class DataCrawler {
+	private static String nhan_vat;
+	public static void main(String[] args) throws IOException {
+		final Links nhan_vat = new Links();
+		ArrayList<String> list = nhan_vat.getLinksHistoricalCharacters(
+				"https://nguoikesu.com/nhan-vat", "nhan-vat"
+		);
+//		for(int i=0;i<list.size();i++) {
+//			System.out.println(list.get(i));
+//		}
+		
+	}
+}
+
+//System.out.println(doc.select("a[class=pagenav]"));
+//System.out.println(doc.select("h2 a"));

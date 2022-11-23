@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class DaysOfMonth {
+	static void isLeapYear() {
+		System.out.println("Leap of faith");
+	}
+	
+	public static void main(String args[]) {
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.println("Month = ");
+		int m = keyboard.nextInt();
+		
+		System.out.println("Year = ");
+		int y = keyboard.nextInt();
+		
+		isLeapYear();
+		
+		System.out.println("Month: " + m + "\nYear: "+ y );
+		
+		keyboard.close();
+	}
+}

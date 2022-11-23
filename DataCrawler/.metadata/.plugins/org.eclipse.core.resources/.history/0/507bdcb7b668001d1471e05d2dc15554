@@ -1,0 +1,123 @@
+package DataCrawler;
+import java.awt.print.Printable;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.RowFilter;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+public class Links {
+// ============================= Properties ==================================
+	private ArrayList<String> historicalCharacters = new ArrayList<String>();
+	private ArrayList<String> kings = new ArrayList<String>(); 
+	private ArrayList<String> presidents = new ArrayList<String>(); 
+// ============================= Methods ==================================
+	public  Links() {
+		historicalCharacters = new ArrayList<String>();
+		kings = new ArrayList<String>();
+		presidents = new ArrayList<String>();
+	}
+	
+	public ArrayList<String> getHistoricalCharacters() {
+		return historicalCharacters;
+	}
+	/**
+	 * Collect links from https://nguoikesu.com/nhan-vat
+	 * @param url
+	 * @param sub = Domain
+	 * @return
+	 * @throws IOException
+	 */
+	public ArrayList<String> setHistoricalCharacters(String url, String sub) throws IOException{
+		System.setProperty("http.proxyhost", "127.0.0.1");
+		System.setProperty("http.proxyport", "8080");
+		
+		ArrayList<String> pagination = new ArrayList<String>();
+		
+		final Document doc = Jsoup.connect(url)
+				.ignoreContentType(true)
+				.timeout(0)
+				.get();
+
+//		Get all pages related
+		pagination.add(url);		
+		for(Element x: doc.select("a[class=pagenav]")) {
+			pagination.add(url.substring(0,21) + x.attr("href"));
+		}
+// 		Append info from all pages
+		for(int i = 0; i < pagination.size(); i++) {
+			Document subDoc = Jsoup.connect(pagination.get(i))
+					.ignoreContentType(true)
+					.timeout(0)
+					.get();
+			for(Element x: subDoc.select("h2 a")) {
+				historicalCharacters.add(sub + x.attr("href"));
+			}
+		}
+		return historicalCharacters;
+	}
+	
+	
+	public ArrayList<String> getKings() {
+		return kings;
+	}
+	/**
+	 * Collect links from https://vi.wikipedia.org/wiki/Vua_Việt_Nam
+	 * @param url
+	 * @param sub = Domain
+	 * @return
+	 * @throws IOException
+	 */
+	public ArrayList<String> setKings(String url,String sub)  throws IOException{
+		System.setProperty("http.proxyhost", "127.0.0.1");
+		System.setProperty("http.proxyport", "8080");
+		final Document doc = Jsoup.connect(url)
+				.ignoreContentType(true)
+				.timeout(0)
+				.get();
+		
+		for(Element table: doc.select("table")) {
+			if(!table.select("tr th:nth-of-type(2):containsOwn(Vua)").text().equals("") 
+					|| !table.select("tr th:nth-of-type(2):containsOwn(Hoàng Đế)").text().equals("")) {
+				for(Element link : table.select("tr td:nth-of-type(2) a[href^=/]")) {				
+					kings.add(sub + link.attr("href"));
+				}
+			}
+		}
+		return kings;
+	}
+	
+	public void printList(ArrayList<String> list) {
+		for(String str : list) {
+			System.out.println(str);
+		}
+	}
+
+	public ArrayList<String> getPresidents() {
+		return presidents;
+	}
+
+	public ArrayList<String> setPresidents(String url, String sub) throws IOException {
+		System.setProperty("http.proxyhost", "127.0.0.1");
+		System.setProperty("http.proxyport", "8080");
+		final Document doc = Jsoup.connect(url)
+				.ignoreContentType(true)
+				.timeout(0)
+				.get();
+		
+		for(Element table: doc.select("table")) {
+			if(!table.select("tr th:nth-of-type(2):containsOwn(Họ và tên)").text().equals("")) {
+				for(Element link : table.select("tr td:nth-of-type(3) a[href^=/]")) {				
+					kings.add(sub + link.attr("href"));
+				}
+			}
+		}
+		return presidents;
+	}
+	
+}

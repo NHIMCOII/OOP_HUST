@@ -1,0 +1,44 @@
+import java.util.Arrays;
+import java.util.Objects;
+
+public class Cart {
+	public static final int MAX_NUMBERS_ORDERED = 20;
+	private Dvd itemsOrdered[] = new Dvd[MAX_NUMBERS_ORDERED];
+	
+	private int qtyOrdered = 0;
+
+	public void setQtyOrdered(int qtyOrdered) {
+		this.qtyOrdered = qtyOrdered;
+	}
+
+	 public void addDVD(Dvd disc) {
+	        if(qtyOrdered == MAX_NUMBERS_ORDERED) {
+	            System.out.println("Your cart is already full!");
+	            return;
+	        }
+	        itemsOrdered[qtyOrdered] = disc;
+	        qtyOrdered ++;
+	        setQtyOrdered(qtyOrdered);
+//	        System.out.println(itemsOrdered[qtyOrdered].getCost());
+	        if(qtyOrdered == MAX_NUMBERS_ORDERED) {
+	            System.out.println("Your cart is full now.");
+	        } else {
+	            System.out.println("Disc added successfully!");
+	        }
+	    }
+
+//	    public void removeDVD(Dvd disc) {
+//	        Object[] t = Arrays.stream(itemsOrdered).filter(x -> !x.equals(disc)).toArray();
+//	        this.itemsOrdered = (Dvd[]) t;
+//	        
+//	    }
+
+	    public float totalCost() {
+	    	float total = 0;
+	    	for(int i=0; i<qtyOrdered;i++) {
+	    		System.out.println(itemsOrdered[i].getTitle());
+	    		total += itemsOrdered[i].getCost();
+	    	}
+	        return total;
+	    }
+}

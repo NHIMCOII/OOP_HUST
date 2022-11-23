@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class DaysOfMonth {
+	static boolean isLeapYear(int year) {
+		
+		return true;
+	}
+	
+	public static void main(String args[]) {
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.println("Month = ");
+		int m = keyboard.nextInt();
+		if(m>12 || m<1) {
+			System.out.println("Invalid Month!");
+			System.exit(0);
+		}
+		
+		System.out.println("Year = ");
+		int y = keyboard.nextInt();
+		
+		boolean check_year = isLeapYear(y);
+		
+		
+		System.out.println("Month: " + m + "\nYear: "+ y );
+		
+		keyboard.close();
+	}
+}

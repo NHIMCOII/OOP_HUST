@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+/**
+ * @author PC
+ *
+ */
+module JavaBasics {
+	requires java.desktop;
+}

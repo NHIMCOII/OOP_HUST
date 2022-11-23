@@ -1,0 +1,53 @@
+package DataCrawler;
+import java.io.IOException;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+public class DataCrawler {
+	private static String nhan_vat;
+	public static void main(String[] args) throws IOException {
+		final Links nhan_vat = new Links();
+		nhan_vat.getLinks(
+				"https://nguoikesu.com/nhan-vat", "nhan-vat"
+		);
+		nhan_vat.printList();
+//		System.setProperty("http.proxyhost", "127.0.0.1");
+//		System.setProperty("http.proxyport", "8080");
+//		final String URL = "https://nguoikesu.com";	
+//		final Document DOC = Jsoup.connect(URL)
+//				.ignoreContentType(true)
+//				.timeout(0)
+//				.get();
+//		Document doc_nhan_vat;
+//		System.out.println("HTML:  \n" + DOC);
+		
+//		============================= Getting Links ================================
+//		Elements links = DOC.select("a[href]");
+//		Elements links = DOC.getElementsByTag("a");
+		
+//		for(Element link: links) {
+//			if(link.attr("href").equals("/nhan-vat")) {
+//				nhan_vat = link.attr("href");
+//			}
+//		}
+//		doc_nhan_vat = Jsoup.connect(URL + nhan_vat)
+//				.ignoreContentType(true)
+//				.timeout(0)
+//				.get();
+//		Elements list = doc_nhan_vat.getElementsByTag("a");
+//		list = list.getElementsByAttribute()
+//		System.out.println(doc_nhan_vat);
+//		============================= Getting Images ================================
+//		Elements images = DOC.getElementsByTag("img");
+//		for(Element image: images) {
+//			System.out.println("\nSrc : " + image.attr("abs:src"));
+//		}
+		
+		
+//		============================= HTML ================================
+
+	}
+}

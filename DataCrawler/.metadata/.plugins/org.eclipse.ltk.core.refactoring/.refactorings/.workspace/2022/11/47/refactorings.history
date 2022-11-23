@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DataScraper&apos; to &apos;DataCrawler&apos;" description="Rename resource &apos;DataScraper&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/DataScraper" name="DataCrawler" stamp="1668610816583" updateReferences="true"/>
+</session>

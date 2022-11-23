@@ -1,0 +1,18 @@
+import java.io.IOException;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+public class main {
+
+	public static void main(String[] args) throws IOException {
+		Document doc = Jsoup.connect("https://www.google.com.vn/search?q=lịch+sử+việt+nam&hl=vi&sxsrf=ALiCzsYi0FsOYEPNiXUgikeeCjL4qJtGjg%3A1668413478322&source=hp&ei=JvhxY6SuELPW2roPlauFyAo&iflsig=AJiK0e8AAAAAY3IGNhzySO98WsvRO2rjLmTV6RLv9VoK&ved=0ahUKEwik2dfFnK37AhUzq1YBHZVVAakQ4dUDCAc&uact=5&oq=lịch+sử+việt+nam&gs_lcp=Cgdnd3Mtd2l6EAMyCAgAEIAEELEDMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEOgcIIxDqAhAnOgcIABCABBAKOggIABCxAxCDAToKCAAQgAQQsQMQCjoNCAAQgAQQsQMQgwEQCjoECAAQQzoLCAAQgAQQsQMQgwE6BAguEAM6BAgAEAM6CQguENQCEAoQQzoECCMQJzoICC4QgAQQsQM6EQguEIAEELEDEIMBEMcBENEDOggILhCABBDUAjoLCC4QgAQQsQMQgwE6CwguEIAEEMcBEK8BOgYIABAWEB5QvwRY1jRgtDdoDHAAeAeAAZoFiAHcJ5IBDTEwLjE0LjEuMS4xLjKYAQCgAQGwAQo&sclient=gws-wiz").get();
+		Elements elements = doc.getElementsByTag("Trần");
+		for(Element x: elements) {
+			System.out.println(x.text());
+		}
+	}
+
+}
