@@ -1,7 +1,0 @@
-package DataCrawler;
-
-public class President_links extends HistoricalCharater_Links{
-	public President_Links() {
-		super();
-	}
-}
