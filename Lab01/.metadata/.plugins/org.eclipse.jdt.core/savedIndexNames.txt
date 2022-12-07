@@ -1,8 +1,0 @@
-INDEX VERSION 1.131+C:\Users\PC\OneDrive - Hanoi University of Science and Technology\Documents\OOP\.metadata\.plugins\org.eclipse.jdt.core
-3285135714.index
-833386100.index
-1585808626.index
-2171868916.index
-299656582.index
-1865797976.index
-1327331695.index
