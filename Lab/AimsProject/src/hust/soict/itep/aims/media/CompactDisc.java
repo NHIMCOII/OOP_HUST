@@ -13,21 +13,28 @@ public class CompactDisc extends Disc implements Playable {
 	public CompactDisc() {
 		super();
 	}
-
-	public CompactDisc(String title, String category, float cost, String director, String artist) {
-		super(title, category, cost, director);
-		this.artist = artist;
-		this.id = ++nbCD;
-	}
-
-	public CompactDisc(String title, String category, float cost) {
-		super(title, category, cost);
-		this.id = ++nbCD;
-	}
-
 	public CompactDisc(String title) {
+		super(title);
 		this.id = ++nbCD;
 	}
+	public CompactDisc(String title,float cost) {
+		this(title);
+		this.cost = cost;
+	}
+	public CompactDisc(String title, String category, float cost) {
+		this(title, cost);
+		this.category = category;
+	}
+	public CompactDisc(String title, String category, float cost, String artist) {
+		this(title, category, cost);
+		this.artist = artist;
+	}
+	public CompactDisc(String title, String category, float cost, String artist, String director) {
+		this(title, category, cost, artist);
+		this.director = director;
+	}
+
+
 
 	// GETTERS
 	public String getArtist() {
@@ -67,6 +74,10 @@ public class CompactDisc extends Disc implements Playable {
 			sum += tracks.get(i).getLength();
 		}
 		return sum;
+	}
+	
+	public String toString() {
+		return "CD(" + this.id + "): "+ this.title + " - " + this.category + " - " + this.director + " - " + this.artist + " - " + this.getLength() + " - " + this.cost + "$";
 	}
 	
 	public void play() {
