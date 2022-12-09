@@ -1,6 +1,6 @@
 package hust.soict.itep.aims.media;
 
-public class Disc extends Media {
+public class Disc extends Media implements Playable {
 
     protected int length;
     protected String director;

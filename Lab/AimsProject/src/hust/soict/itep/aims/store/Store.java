@@ -11,16 +11,16 @@ public class Store {
     public Store() {
     }
 
-    public void addItem(Media media) {
-        if (media == null) {
+    public void addItem(Media item) {
+        if (item == null) {
             System.out.println("Add to store fail");
             return;
         }
-        if (itemsInStore.contains(media)) {
+        if (itemsInStore.contains(item)) {
             System.out.println("Item is already in store!!!");
             return;
         }
-        itemsInStore.add(media);
+        itemsInStore.add(item);
         System.out.println("New Item added to store");
     }
 
@@ -35,12 +35,12 @@ public class Store {
         }
     }
 
-    public void removeItem(Media media) {
-        if (!itemsInStore.contains(media)) {
+    public void removeItem(Media item) {
+        if (!itemsInStore.contains(item)) {
             System.out.println("This Item is not in store!!!");
             return;
         }
-        itemsInStore.remove(media);
+        itemsInStore.remove(item);
         System.out.println("Item removed from store");
     }
 

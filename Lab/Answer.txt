@@ -1,14 +1,27 @@
-1. Try to add a method addDigitalVideoDisc which allows to pass an arbitrary number of arguments for dvd. Compare to an array parameter. What do you prefer in this case ?
-	I prefer array parameter.
+1. Which classes are aggregates of other classes? 
+Checking all constructors of whole classes if they initialize for their parts?
+ - CompactDisc and Track
+ - MediaComparatorByCostTitle, MediaComparatorByTitleCost and Media
+ - Media and Store
+ - Media and Cart
+ - Store and Aims
+ - Cart and Aims
 
-2. Is JAVA a Pass by Value or a Pass by Reference programming language?
-	JAVA is a Pass by Value programming language.
+2. If the passing object is not an instance of Media, what happens?
+ - Error
 
-3.After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
-	Because swap(jungleDVD, cinderellaDVD) only swap the 2 copies of jungleDVD and cinderellaDVD.
+3. What class should implement the Comparable interface?
+ - Media
 
-4. After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed ?
-	Because we call setTilte() inside changeTitle()
+4. In those classes, how should you implement the compareTo()method be to 
+reflect the ordering that we want?
+ - Compare by title or by cost
 
-5. Write a toString() method for the DigitalVideoDisc class. What should be the return type of this method ?
-	Return type should be String.
+5. Can we have two ordering rules of the item (by title then cost and by cost 
+then title) if we use this Comparable interface approach?
+ - No
+
+6. Suppose the DVDs has a different ordering rule from the other media types,
+that is by title, then decreasing length, then cost. 
+How would you modify your code to allow this?
+ - Add more rule to compare by length and rearrange them to match the criterias.
