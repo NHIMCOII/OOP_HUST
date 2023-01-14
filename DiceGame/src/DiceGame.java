@@ -81,13 +81,7 @@ public class DiceGame {
                     e.printStackTrace();
                 }
             } else if (m == 2) {
-                Player winner;
-                try {
-                    winner = new Player();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    continue;
-                }
+                String winner = "";
                 int playersNum = Player.getNUM();
                 if (playersNum < 4) {
                     System.out.println("Auto generate " + (4 - playersNum) + " Bot");
@@ -108,7 +102,7 @@ public class DiceGame {
                             p.rollDice(DiceGame.pickADice());
                             score = p.getScore();
                             if (score == -1) {
-                                winner = p;
+                                winner = p.getName();
                                 break;
                             }
                             continue;
@@ -126,15 +120,16 @@ public class DiceGame {
                     }
                 }
                 for (Player p : players) {
-                    if (p instanceof Bot && !p.equals(winner)) {
+                    if (p instanceof Bot && !p.getName().equals(winner)) {
                         ((Bot) p).expressEmotion();
                     }
                 }
                 players.removeIf(e -> e instanceof Bot);
-                Player.clearPLayer();
+                Player.clearBot(4 - playersNum);
                 Bot.clearBot();
             } else if (m == 0) {
                 players.clear();
+                Player.clearPLayer();
                 break;
             } else {
                 System.out.println("Invalid choice, please try again.");

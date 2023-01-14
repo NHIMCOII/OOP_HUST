@@ -61,4 +61,8 @@ public class Player implements RollDice {
         NUM = 0;
     }
 
+    public static void clearBot(int botNum) {
+        NUM = 4 - botNum;
+    }
+
 }
